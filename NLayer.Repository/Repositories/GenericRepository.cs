@@ -42,7 +42,7 @@ namespace NLayer.Repository.Repositories
             _dbSet.Remove(entity);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll()
         {
             //AsNoTracking is a for not taking on memomry
             return _dbSet.AsNoTracking().AsQueryable();
