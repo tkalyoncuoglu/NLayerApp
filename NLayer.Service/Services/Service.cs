@@ -41,12 +41,6 @@ namespace NLayer.Service.Services
             return await _repository.AnyAsync(expression);
         }
 
-        public async Task RemoveAsync(T entity)
-        {
-            _repository.Remove(entity);
-            await _unitOfWork.CommitAsync();   
-        }
-
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _repository.GetAll().ToListAsync();    
@@ -55,6 +49,11 @@ namespace NLayer.Service.Services
         public async Task<T> GetByIdAsync(int id)
         {
             return await _repository.GetByIdAsync(id);
+        }
+        public async Task RemoveAsync(T entity)
+        {
+            _repository.Remove(entity);
+            await _unitOfWork.CommitAsync();   
         }
 
         public async Task RemoveRangeAsync(IEnumerable<T> entities)
