@@ -10,6 +10,7 @@ namespace NLayer.API.Controllers
         [NonAction]
         public IActionResult CreateActionResult<T>(CustomResponseDTO<T> response)
         {
+            //Status Code ? = 204
             if(response.StatusCode == 204)
             {
                 return new ObjectResult(null)
@@ -18,6 +19,7 @@ namespace NLayer.API.Controllers
                 };
             }
 
+            //Status Code ? != 204
             return new ObjectResult(response)
             {
                 StatusCode = response.StatusCode
