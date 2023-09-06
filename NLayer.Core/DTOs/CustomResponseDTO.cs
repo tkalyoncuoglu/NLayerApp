@@ -17,7 +17,7 @@ namespace NLayer.Core.DTOs
         // Static Factory Method
         public static CustomResponseDTO<T> Success(int statusCode, T data)
         {
-            return new CustomResponseDTO<T> { StatusCode = statusCode, Data = data};
+            return new CustomResponseDTO<T> { StatusCode = statusCode, Data = data };
         }
         // Static Factory Method
         public static CustomResponseDTO<T> Success(int statusCode)
@@ -25,13 +25,14 @@ namespace NLayer.Core.DTOs
             return new CustomResponseDTO<T> { StatusCode = statusCode };
         }
         // Static Factory Method
-        public static CustomResponseDTO<T> Fail(int statusCode, List<String> errors) 
+        public static CustomResponseDTO<T> Fail(int statusCode, List<String> errors)
         {
-            return new CustomResponseDTO<T> { StatusCode = statusCode, Errors = errors};
+            return new CustomResponseDTO<T> { StatusCode = statusCode, Errors = errors };
         }
         // Static Factory Method
         public static CustomResponseDTO<T> Fail(int statusCode, string error)
         {
             return new CustomResponseDTO<T> { StatusCode = statusCode, Errors = new List<string> { error } };
+        }
     }
 }
