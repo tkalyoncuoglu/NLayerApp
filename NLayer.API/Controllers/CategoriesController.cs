@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using NLayer.API.Filters;
 using NLayer.Core.Services;
 
 namespace NLayer.API.Controllers
@@ -15,10 +16,10 @@ namespace NLayer.API.Controllers
         }
 
         //GET api/categories/getsinglecategorybyidwithproducts/id
-        [HttpGet("[action]/{categoryid}")]
-        public async Task<IActionResult> GetSingleCategoryByIdWithProducts(int categoryId)
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetSingleCategoryByIdWithProducts(int id)
         {
-           return CreateActionResult(await _categoryService.GetSingleCategoryByIdWithProducts(categoryId));
+           return CreateActionResult(await _categoryService.GetSingleCategoryByIdWithProducts(id));
         }
     }
 }
