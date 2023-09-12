@@ -15,7 +15,7 @@ namespace NLayer.Repository.Configurations
         {
             //FluentAPI in Product
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Id);
             builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
             builder.Property(x => x.Stock).IsRequired();
             builder.Property(x => x.Price).IsRequired().HasColumnType("decimal(20,2)");

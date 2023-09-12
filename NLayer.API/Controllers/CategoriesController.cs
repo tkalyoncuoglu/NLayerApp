@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using NLayer.API.Filters;
+using NLayer.Core.DTOs;
 using NLayer.Core.Services;
 
 namespace NLayer.API.Controllers
@@ -21,5 +22,11 @@ namespace NLayer.API.Controllers
         {
            return CreateActionResult(await _categoryService.GetSingleCategoryByIdWithProducts(id));
         }
+        [HttpGet("GetAllCategories")]
+        public async Task<IActionResult> GetAll()
+        {
+            return CreateActionResult(await _categoryService.GetAllCategories());
+        }
+
     }
 }

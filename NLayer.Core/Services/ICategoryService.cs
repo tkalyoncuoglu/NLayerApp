@@ -11,5 +11,7 @@ namespace NLayer.Core.Services
     public interface ICategoryService : IService<Category>
     {
         public Task<CustomResponseDTO<CategoryWithProductsDTO>> GetSingleCategoryByIdWithProducts(int categoryId);
+
+        public Task<CustomResponseDTO<List<CategoryDTO>>> GetAllCategories();
     }
 }

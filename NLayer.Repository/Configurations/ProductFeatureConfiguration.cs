@@ -15,7 +15,7 @@ namespace NLayer.Repository.Configurations
         {
             //FluentAPI in ProductFeature
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Id);
             builder.Property(x => x.Color).IsRequired();
             builder.Property(x => x.Height).IsRequired();
             builder.Property(x => x.Width).IsRequired();

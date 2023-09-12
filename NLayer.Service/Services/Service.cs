@@ -44,7 +44,7 @@ namespace NLayer.Service.Services
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _repository.GetAll().ToListAsync();    
+            return await _repository.GetAllAsync();    
         }
 
         public async Task<T> GetByIdAsync(int id)
@@ -76,9 +76,6 @@ namespace NLayer.Service.Services
             await _unitOfWork.CommitAsync();   
         }
 
-        public IQueryable<T> Where(Expression<Func<T, bool>> expression)
-        {
-            return _repository.Where(expression);
-        }
+       
     }
 }

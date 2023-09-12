@@ -42,10 +42,10 @@ namespace NLayer.Repository.Repositories
             _dbSet.Remove(entity);
         }
 
-        public IQueryable<T> GetAll()
+        public Task<List<T>> GetAllAsync()
         {
             //AsNoTracking is a for not taking on memomry
-            return _dbSet.AsNoTracking().AsQueryable();
+            return _dbSet.AsNoTracking().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
@@ -63,9 +63,6 @@ namespace NLayer.Repository.Repositories
             _dbSet.Update(entity);
         }
 
-        public IQueryable<T> Where(Expression<Func<T, bool>> expression)
-        {
-            return _dbSet.Where(expression);
-        }
+        
     }
 }

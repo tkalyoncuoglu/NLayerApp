@@ -31,13 +31,7 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 builder.Services.AddEndpointsApiExplorer(); 
 builder.Services.AddMemoryCache();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<AppDbContext>(x =>
-{
-    x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>
-    {
-        option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
-    });
-});
+builder.Services.AddDbContext<AppDbContext>();
 
 
 builder.Services.AddScoped(typeof(NotFoundFilter<>));

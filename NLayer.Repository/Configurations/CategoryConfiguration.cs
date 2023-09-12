@@ -15,7 +15,7 @@ namespace NLayer.Repository.Configurations
         {
             //FluentAPI in Category
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Id);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(30);
             builder.HasIndex(x => x.Name).IsUnique();
             builder.ToTable("Categories");

@@ -115,7 +115,7 @@ namespace NLayer.Caching
 
         public async Task CachecAllProductsAsync()
         {
-            _memoryCache.Set(CacheProductKey, await _productRepository.GetAll().ToListAsync());
+            _memoryCache.Set(CacheProductKey, await _productRepository.GetAllAsync());
         }
     }
 }

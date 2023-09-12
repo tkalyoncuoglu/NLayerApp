@@ -25,5 +25,14 @@ namespace NLayer.Service.Services
 
             return CustomResponseDTO<CategoryWithProductsDTO>.Success(200,categoryDto);
         }
+
+        public async Task<CustomResponseDTO<List<CategoryDTO>>> GetAllCategories()
+        {
+            var categories = await _categoryRepository.GetAllAsync();
+            var categoriesDto = _mapper.Map<List<CategoryDTO>>(categories);
+
+            return CustomResponseDTO<List<CategoryDTO>>.Success(200, categoriesDto);
+
+        }
     }
 }
