@@ -12,7 +12,15 @@ namespace NLayer.API.Filters
             {
                 var errors = context.ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList();
 
-                context.Result = new BadRequestObjectResult(CustomResponseDTO<NoContentDTO>.Fail(400,errors));
+                var fluentValidationErrors = errors.Where(x => x.StartsWith("[FV]"));
+
+                var truncatedErrors = fluentValidationErrors.Select(x => x.Substring(4, x.Length - 4)).ToList();
+
+                if(truncatedErrors.Any())
+                    context.Result = new BadRequestObjectResult(CustomResponseDTO<NoContentDTO>.Fail(400,truncatedErrors));
+                else
+                    context.Result = new BadRequestObjectResult(CustomResponseDTO<NoContentDTO>.Fail(400, errors));
+
             }
         }
     }
